@@ -1,0 +1,14 @@
+.Filters{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: .5rem;
+    padding: 1rem .5rem;
+}
+.Filters button{
+    backdrop-filter: blur(15px);
+    font-size: 1rem;
+    border: 1px solid var(--gray);
+    padding: 10%;
+    border-radius: 10px;
+    color: white;
+}

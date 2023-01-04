@@ -1,0 +1,25 @@
+.search{
+    display: flex;
+    align-items: center;
+    position: relative;
+    backdrop-filter: blur(3px);
+}
+.search input::placeholder{
+    color: var(--gray)
+}
+.search span{
+    z-index: 2;
+    position: absolute;
+    left: 9%;
+    color: white;
+}
+.search input{
+    font-size: 1rem;
+    margin-left: 2%;
+    padding: 7%;
+    padding-left: 15%;
+    width: 100%;
+    background-color: rgba(30, 30, 30, .7);
+    border: 1px solid var(--gray);
+    border-radius: 80px;
+}
