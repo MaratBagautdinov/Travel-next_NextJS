@@ -1,5 +1,5 @@
 import s from './PopularPlaces.module.css'
-import {IPlace} from "../../../types/place";
+import {IPlace} from "../../../../types/place";
 import {FC} from "react";
 interface IPopularPlaces {
     places: IPlace[]
@@ -8,6 +8,7 @@ const PopularPlaces: FC<IPopularPlaces> = ({places}) => {
     return (
         <div className={s.PopularPlaces}>
             <h2>Popular places</h2>
+            <div className={s.list}>
             {places.map(place => (
                 <div
                     className={s.item}
@@ -18,6 +19,7 @@ const PopularPlaces: FC<IPopularPlaces> = ({places}) => {
                     </div>
                 </div>
             ))}
+            </div>
         </div>
     );
 };

@@ -1,4 +1,4 @@
-import {IPlace} from "../../components/types/place";
+import {IPlace} from "../../types/place";
 import {NextApiRequest, NextApiResponse} from "next";
 import tokyo from '../../images/tokyo.jpg'
 import moscow from '../../images/moscow.jpg'

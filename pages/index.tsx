@@ -1,30 +1,30 @@
 import Layout from "../components/common/footer/Layout";
 import {GetStaticProps, NextPage} from "next";
-import {IPlace} from "../components/types/place";
-import SearchSection from "../components/elements/home/searchSection/SearchSection";
-import PopularPlaces from "../components/elements/home/PopularPlaces/PopularPlaces";
+import {IPlace} from "../types/place";
 import {API_URL} from "../constants";
-
-interface IHome {
-  places: IPlace[]
+import {useState} from "react";
+import Home from "../components/elements/home/Home";
+interface IApp {
+    initialPlaces: IPlace[]
 }
-
-const Home:NextPage<IHome> = ({places}) => {
-  return <Layout>
-      <SearchSection/>
-      <PopularPlaces places={places}/>
-  </Layout>
+const App:NextPage<IApp> = ({initialPlaces}) => {
+    const [places, setPlaces] = useState(initialPlaces);
+    return (
+        <Layout>
+            <Home places={places} setPlaces={setPlaces}/>
+        </Layout>
+    )
 }
 
 export const getStaticProps: GetStaticProps =
     async () =>{
     const result = await fetch(`${API_URL}/places`)
-    const places = await result.json()
+    const initialPlaces = await result.json()
   return {
         props:{
-          places
+            initialPlaces
         }
       }
     }
 
-    export default Home
+    export default App

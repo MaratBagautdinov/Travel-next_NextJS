@@ -6,13 +6,15 @@
     background-position: top center;
     position: relative;
     align-items: center;
+    width: 100%;
 }
 .section > div{
     z-index: 1;
-    width: 100%;
+    width: 80%;
 }
 .section h1{
     text-align: center;
     padding: 3rem 0;
     color: #fff;
+    font-size: 1.5rem;
 }

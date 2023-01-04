@@ -1,3 +1,44 @@
 .PopularPlaces{
-    color: white
+    color: white;
+    padding: 0 10%;
+    margin-top: 4rem;
+}
+.PopularPlaces h2{
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+.PopularPlaces .list{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+}
+.list > div {
+    border-radius: 30px;
+    height: 200px;
+    background-position: center;
+    background-size: cover;
+    margin-top: -4rem;
+    box-shadow: -5px -5px 15px 5px rgba(0, 0, 0, 0.84);
+    padding: 2rem;
+    font-size: 1.5rem;
+    position: relative;
+    text-shadow: 0 0 20px #0c0c0c;
+    cursor: pointer;
+    transition: .4s ease;
+    top: 0;
+}
+.list > div:first-child{
+    margin-top: 0;
+}
+.list > div:after {
+    content: "";
+    border-radius: 30px;
+    position: absolute;
+    top: 0; bottom: 0; left: 0; right: 0;
+    background: rgba(0,0,0,0.1);
+    pointer-events: none;
+    box-shadow: inset -3px 6px 15px 0 rgba(255, 255, 255, 0.2);
+}
+.item:hover{
+    top: -1rem;
 }
