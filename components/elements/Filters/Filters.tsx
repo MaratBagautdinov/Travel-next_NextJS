@@ -7,6 +7,7 @@ const cities = [
     {location: 'Brazil'},
     {location: 'Norway'},
     {location: 'Minsk'},
+    {location: 'Kiev'},
 ]
 
 const Filters:FC = () => {
