@@ -1,10 +1,15 @@
+type TLocation = {
+    country: string
+    city: string
+}
+
 export interface IPlace{
     slug: string
-    location: string
+    location: TLocation
     imageLink: string
     description: string
     rating: 1 | 2 | 3 | 4 | 5
-    duration: string
+    duration: number
     distance: number
     googleMapLink: string
     mapImage: string

@@ -9,7 +9,7 @@
 }
 .section > div{
     z-index: 1;
-    width: 80%;
+    width: 100%;
 }
 .section h1{
     text-align: center;

@@ -10,16 +10,21 @@
 .search span{
     z-index: 2;
     position: absolute;
-    left: 9%;
+    left: 2rem;
     color: white;
 }
 .search input{
     font-size: 1rem;
     margin-left: 2%;
-    padding: 7%;
-    padding-left: 15%;
+    padding: 1rem;
+    padding-left: 4rem;
     width: 100%;
+    color: white;
     background-color: rgba(30, 30, 30, .7);
-    border: 1px solid var(--gray);
+    border-inline: 10% solid var(--gray);
     border-radius: 80px;
+}
+.search input:focus{
+    border-inline: none;
+    border: 2px solid var(--gray);
 }

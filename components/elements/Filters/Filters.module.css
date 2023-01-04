@@ -11,4 +11,8 @@
     padding: 10%;
     border-radius: 10px;
     color: white;
+    transition: .4s;
+}
+.Filters button.active{
+    border: 1px solid var(--acscent);
 }

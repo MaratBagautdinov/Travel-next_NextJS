@@ -1,6 +1,6 @@
 import s from './SearchSection.module.css'
 import {FC} from "react";
-import Search from "../Search/Search";
+import Search from "./Search/Search";
 import Filters from "../../Filters/Filters";
 import mapImage from '../../../../images/world-map.png'
 
