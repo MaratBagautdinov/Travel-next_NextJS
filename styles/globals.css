@@ -12,7 +12,7 @@ html, body{
     background-color: var(--bgc);
     font-family: ProstoOne;
     letter-spacing: .1rem;
-    padding-bottom: 220px;
+    color: #fff
 }
 a{text-decoration: none}
 ul{list-style-type: none;

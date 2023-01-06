@@ -1,30 +1,34 @@
 import Layout from "../components/common/footer/Layout";
 import {GetStaticProps, NextPage} from "next";
-import {IPlace} from "../types/place";
+import {ICountries, IPlace} from "../types/place";
 import {API_URL} from "../constants";
 import {useState} from "react";
 import Home from "../components/elements/home/Home";
 interface IApp {
-    initialPlaces: IPlace[]
+    initialPlaces: IPlace[],
+    initialCountries: ICountries[]
 }
-const App:NextPage<IApp> = ({initialPlaces}) => {
+const App:NextPage<IApp> = ({initialPlaces, initialCountries}) => {
     const [places, setPlaces] = useState(initialPlaces);
     return (
         <Layout>
-            <Home places={places} setPlaces={setPlaces}/>
+            <Home initialCountries={initialCountries} initialPlaces ={initialPlaces} places={places} setPlaces={setPlaces}/>
         </Layout>
     )
 }
 
 export const getStaticProps: GetStaticProps =
-    async () =>{
-    const result = await fetch(`${API_URL}/places`)
-    const initialPlaces = await result.json()
-  return {
-        props:{
-            initialPlaces
-        }
-      }
+    async () => {
+        const Places = await fetch(`${API_URL}/places`)
+        const initialPlaces = await Places.json()
+        const Countries = await fetch(`${API_URL}/countries`)
+        const initialCountries = await Countries.json()
+      return {
+            props:{
+                initialPlaces,
+                initialCountries
+            }
+          }
     }
 
     export default App

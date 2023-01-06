@@ -1,32 +1,23 @@
 import s from './Filters.module.css'
 import {FC, useState} from "react";
 import cn from 'classnames';
-import {TypeSetState} from "../../../../../types/common";
-import {IPlace} from "../../../../../types/place";
-const cities = [
-    {location: 'Paris'},
-    {location: 'Moscow'},
-    {location: 'Brazil'},
-    {location: 'Norway'},
-    {location: 'Minsk'},
-    {location: 'Kiev'}
-]
+import {ICountries} from "../../../../../types/place";
 interface IFilters{
-    setPlaces: TypeSetState<IPlace[]>
+    initialCountries: ICountries[],
+    filter,
+    setFilter,
 }
 
-const Filters:FC<IFilters> = () => {
-    const [filter, setFilter] = useState('')
+const Filters:FC<IFilters> = ({setFilter, initialCountries, filter}) => {
     return (
         <div className={s.Filters}>
-            {cities.map(city =>
+            {initialCountries.map(country =>
                 <button
-                    onClick={()=> setFilter(city.location)}
-                    key={city.location}
-                className={cn({
-                    [s.active]:city.location === filter
-                })}>
-                    {city.location}
+                    onClick={()=> setFilter(country.location)}
+                    key={country.id}
+                    className={cn({[s.active]:country.location.toLowerCase() === filter})}
+                >
+                    {country.location}
                 </button>
             )}
         </div>

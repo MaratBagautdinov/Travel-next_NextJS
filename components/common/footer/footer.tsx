@@ -26,14 +26,19 @@ const items:typeItems[] = [
 ]
 const Footer = () => {
     const {push, pathname} = useRouter();
-  return <footer className={s.footer}>
-    <nav>
-        {items.map(item =>(
-        <button className={pathname === item.link ? s.active : ''} key={item.link} onClick={() => push(item.link)}>
-          <span className='material-icons-outlined'>{item.icon}</span>
-        </button>
-        ))}
-    </nav>
-  </footer>
+    return (
+        <footer className={s.footer}>
+            <nav>
+                {items.map(item =>(
+                <button
+                    className={pathname === item.link ? s.active : ''}
+                    key={item.link}
+                    onClick={() => push(item.link)}>
+                  <span className='material-icons-outlined'>{item.icon}</span>
+                </button>
+                ))}
+            </nav>
+        </footer>
+    )
 }
 export default Footer
