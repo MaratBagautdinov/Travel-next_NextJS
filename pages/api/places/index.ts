@@ -1,13 +1,13 @@
-import {IPlace} from "../../types/place";
+import {IPlace} from "../../../types/place";
+import tokyo from '../../../images/tokyo.jpg'
+import moscow from '../../../images/moscow.jpg'
+import franche from '../../../images/Paris.jpg'
+import germany from '../../../images/berlin.jpg'
+import kazan from '../../../images/kazan.jpg'
 import {NextApiRequest, NextApiResponse} from "next";
-import tokyo from '../../images/tokyo.jpg'
-import moscow from '../../images/moscow.jpg'
-import franche from '../../images/Paris.jpg'
-import germany from '../../images/berlin.jpg'
-import kazan from '../../images/kazan.jpg'
-const Places:IPlace[] = [
+export const places:IPlace[] = [
     {
-        slug: "Tokyo",
+        id: 0,
         location: {city: 'Tokyo',country:'Japan'},
         imageLink: tokyo.src,
         description: "Drift",
@@ -18,7 +18,7 @@ const Places:IPlace[] = [
         mapImage: "string"
     },
     {
-        slug: "Moscow",
+        id: 1,
         location: {city: 'Moscow', country: 'Russia'},
         description: "Russian Vodka",
         distance: 122,
@@ -29,7 +29,7 @@ const Places:IPlace[] = [
         mapImage: ""
     },
     {
-        slug: "Kazan",
+        id: 2,
         location: {city: 'Kazan', country: 'Russia'},
         description: "Capital of Tatarstan Republic",
         distance: 122,
@@ -40,7 +40,7 @@ const Places:IPlace[] = [
         mapImage: ""
     },
     {
-        slug: "Paris",
+        id: 3,
         location: {city: 'Paris', country: "Franche"},
         description: "Vodka",
         distance: 4222,
@@ -51,7 +51,7 @@ const Places:IPlace[] = [
         mapImage: " "
     },
     {
-        slug: "Berlin",
+        id: 4,
         location: {city: 'Berlin', country: "Germany"},
         description: "Beer",
         distance: 5222,
@@ -63,6 +63,6 @@ const Places:IPlace[] = [
     }
 ]
 
-export default function handlerPlaces(req: NextApiRequest, res: NextApiResponse){
-    res.status(200).json(Places)
+export default function handler(req: NextApiRequest, res: NextApiResponse) {
+    res.status(200).json(places)
 }

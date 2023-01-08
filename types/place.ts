@@ -1,11 +1,9 @@
-type TLocation = {
-    country: string
-    city: string
-}
-
 export interface IPlace{
-    slug: string
-    location: TLocation
+    id: number
+    location: {
+        country: string
+        city: string
+    }
     imageLink: string
     description: string
     rating: 1 | 2 | 3 | 4 | 5

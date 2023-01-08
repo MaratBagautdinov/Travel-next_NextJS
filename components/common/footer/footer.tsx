@@ -16,7 +16,7 @@ const items:typeItems[] = [
         icon: 'explore'
     },
     {
-        link: '/place/Kyoto',
+        link: '/place/1',
         icon: 'place'
     },
     {

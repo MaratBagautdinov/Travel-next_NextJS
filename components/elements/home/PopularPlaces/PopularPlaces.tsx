@@ -14,8 +14,8 @@ const PopularPlaces: FC<IPopularPlaces> = ({places}) => {
             {places.map(place => (
                 <div
                     className={s.item}
-                    onClick={()=> push(`/place/${place.slug}`)}
-                    key={place.slug}
+                    onClick={()=> push(`/place/${place.id}`)}
+                    key={place.id}
                     style={{backgroundImage: `url(${place.imageLink})`}}>
                     <div className={s.heading}>
                         {place.location.city + ', ' + place.location.country}
