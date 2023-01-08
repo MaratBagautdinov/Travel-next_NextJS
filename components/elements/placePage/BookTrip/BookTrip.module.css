@@ -1,0 +1,26 @@
+.BookTrip{
+    margin-top: 1.5rem;
+}
+.BookTrip button span{
+    padding: .8rem;
+    background-color: #fff;
+    border-radius: 2rem;
+    color: #0c0c0c;
+}
+.BookTrip button{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1.5rem;
+    padding: .4rem;
+    border-radius: 3rem;
+    background-color: var(--acscent);
+    box-shadow: 0 15px 60px 0 rgba(192, 72, 21, 0.29);
+    padding-left: 2rem;
+    color: #ffffff;
+    font-size: 1.1rem;
+    transition: .4s;
+}
+.BookTrip button:hover{
+    box-shadow: 0 15px 30px 0 rgba(192, 72, 21, 0.14);
+}

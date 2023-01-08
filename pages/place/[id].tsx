@@ -3,15 +3,18 @@ import Layout from "../../components/common/footer/Layout";
 import {GetStaticPaths, GetStaticProps, NextPage} from "next";
 import {API_URL} from "../../constants";
 import {IPlace} from "../../types/place";
+import PlacePage from "../../components/elements/placePage/PlacePage";
 
 interface IPlacePage {
   place:IPlace
 }
 const Place:NextPage<IPlacePage> = ({place}) => {
   return <Layout>
-    Place {place.id}
+    <PlacePage place={place}/>
   </Layout>
 }
+
+
 export const getStaticPaths: GetStaticPaths = async() =>{
   const res = await fetch(`${API_URL}/places`);
   const places = await res.json();

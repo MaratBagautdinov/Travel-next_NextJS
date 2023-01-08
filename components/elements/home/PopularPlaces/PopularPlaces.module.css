@@ -25,6 +25,7 @@
     cursor: pointer;
     transition: .4s ease;
     top: 0;
+    font-weight: bold;
 }
 .list > div:first-child{
     margin-top: 0;
