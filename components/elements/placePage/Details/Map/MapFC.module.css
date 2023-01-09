@@ -1,0 +1,13 @@
+.map{
+    position: relative;
+    overflow: hidden;
+}
+.map .distance{
+    display: flex;
+    align-items: center;
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    font-size: .8rem;
+    gap: .4rem;
+}

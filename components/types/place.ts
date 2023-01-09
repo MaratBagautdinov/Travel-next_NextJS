@@ -1,16 +1,15 @@
+export interface ILocation {
+    country: string
+    city: string
+    coordinates: [number, number]
+}
 export interface IPlace{
     id: number
-    location: {
-        country: string
-        city: string
-    }
+    location: ILocation
     imageLink: string
     description: string
     rating: 1 | 2 | 3 | 4 | 5
     duration: number
-    distance: number
-    googleMapLink: string
-    mapImage: string
 }
 export interface ICountries{
     id:number

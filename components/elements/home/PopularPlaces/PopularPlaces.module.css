@@ -11,7 +11,8 @@
     position: relative;
     flex-direction: column;
 }
-.list > div {
+.list > .item {
+    text-transform: capitalize;
     border-radius: 30px;
     height: 200px;
     background-position: center;
@@ -26,11 +27,12 @@
     transition: .4s ease;
     top: 0;
     font-weight: bold;
+    color: white;
 }
-.list > div:first-child{
+.list > .item:first-child{
     margin-top: 0;
 }
-.list > div:after {
+.list > .item:after {
     content: "";
     border-radius: 30px;
     position: absolute;

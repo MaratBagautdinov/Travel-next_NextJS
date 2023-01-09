@@ -1,11 +1,11 @@
 import s from './footer.module.css'
 import {useRouter} from "next/router";
+import login from "../../../pages/api/loginUser";
 
 type typeItems = {
     link: string
     icon: string
 }
-
 const items:typeItems[] = [
     {
         link: '/',
@@ -16,11 +16,11 @@ const items:typeItems[] = [
         icon: 'explore'
     },
     {
-        link: '/place/1',
+        link: '/place/moscow',
         icon: 'place'
     },
     {
-        link: '/profile',
+        link: `/profile/${(login.toString() === '-1') ? 'login' : login}`,
         icon: 'person'
     },
 ]
@@ -33,7 +33,7 @@ const Footer = () => {
                 <button
                     className={pathname === item.link ? s.active : ''}
                     key={item.link}
-                    onClick={() => push(item.link)}>
+                    onClick={() => push(item.link.toLowerCase())}>
                   <span className='material-icons-outlined'>{item.icon}</span>
                 </button>
                 ))}

@@ -21,6 +21,7 @@
     background-color: rgba(30, 30, 30, .7);
     border-inline: 10% solid var(--gray);
     border-radius: 80px;
+    text-transform: uppercase;
 }
 .search input:focus{
     border-inline: none;

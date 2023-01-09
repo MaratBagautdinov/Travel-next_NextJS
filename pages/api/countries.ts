@@ -1,5 +1,5 @@
 import {NextApiRequest, NextApiResponse} from "next";
-import {ICountries} from "../../types/place";
+import {ICountries} from "@/types/place";
 
 const Countries:ICountries[] = [
     {
@@ -8,7 +8,7 @@ const Countries:ICountries[] = [
     },
     {
         id:2,
-        location:'Franche'
+        location:'franche'
     },
     {
         id:3,

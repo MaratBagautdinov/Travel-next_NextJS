@@ -1,4 +1,4 @@
-import Layout from "../components/common/footer/Layout";
+import Layout from "@/common/footer/Layout";
 
 const Explore = () => {
     return <Layout>

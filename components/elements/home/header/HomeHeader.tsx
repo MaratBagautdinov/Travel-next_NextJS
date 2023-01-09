@@ -1,6 +1,6 @@
 import s from './Header.module.css'
 import Search from "./Search/Search";
-import mapImage from '../../../../images/world-map.png'
+import mapImage from '../../../../public/places/world-map.png'
 import Filters from "./Filters/Filters";
 import {useEffect, useState} from "react";
 
@@ -11,8 +11,8 @@ const HomeHeader = ({setPlaces, initialPlaces, initialCountries}) => {
     useEffect(()=>{
         if(value) {
             setPlaces(initialPlaces.filter(place =>
-                place.location.city.toLowerCase().includes(value) ||
-                place.location.country.toLowerCase().includes(value))
+                place.location.city.toUpperCase().includes(value) ||
+                place.location.country.toUpperCase().includes(value))
             )
         } else {
             setPlaces(initialPlaces);
@@ -21,10 +21,10 @@ const HomeHeader = ({setPlaces, initialPlaces, initialCountries}) => {
         setSearchTerm(value)
     },[value])
     useEffect(()=>{
-        setValue(searchTerm.toLowerCase())
+        setValue(searchTerm.toUpperCase())
     },[searchTerm])
     useEffect(()=>{
-        setValue(filter.toLowerCase())
+        setValue(filter.toUpperCase())
     },[filter])
 
   return (

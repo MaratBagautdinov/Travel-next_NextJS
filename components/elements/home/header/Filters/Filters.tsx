@@ -1,7 +1,7 @@
 import s from './Filters.module.css'
-import {FC, useState} from "react";
+import {FC} from "react";
 import cn from 'classnames';
-import {ICountries} from "../../../../../types/place";
+import {ICountries} from "@/types/place";
 interface IFilters{
     initialCountries: ICountries[],
     filter,
@@ -15,7 +15,7 @@ const Filters:FC<IFilters> = ({setFilter, initialCountries, filter}) => {
                 <button
                     onClick={()=> setFilter(country.location)}
                     key={country.id}
-                    className={cn({[s.active]:country.location.toLowerCase() === filter})}
+                    className={cn({[s.active]:country.location.toUpperCase() === filter})}
                 >
                     {country.location}
                 </button>

@@ -1,6 +1,7 @@
 import s from './Details.module.css'
 import {FC} from "react";
-import {IPlace} from "../../../../types/place";
+import {IPlace} from "@/types/place";
+import MapFC from "./Map/MapFC";
 interface IDetails {
     place:IPlace
 }
@@ -24,12 +25,7 @@ const Details:FC<IDetails> = ({place}) =>{
                     </div>
                 </div>
             </div>
-            <div className={s.map}>
-                <div className={s.distance}>
-                    <span className="material-icons-outlined" style={{fontSize:".8rem"}}>place</span>
-                    <span className={s.count}>{place.distance} KM</span>
-                </div>
-            </div>
+            <MapFC location={place.location}/>
         </div>
     )
 }

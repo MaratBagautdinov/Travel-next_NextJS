@@ -1,6 +1,6 @@
 import s from './BookTrip.module.css'
 import {FC} from "react";
-import {IPlace} from "../../../../types/place";
+import {IPlace} from "@/types/place";
 interface IBookTrip {
     place:IPlace
 }

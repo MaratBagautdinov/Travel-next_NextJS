@@ -1,9 +1,10 @@
-import Layout from "../components/common/footer/Layout";
+import Layout from "@/common/footer/Layout";
 import {GetStaticProps, NextPage} from "next";
-import {ICountries, IPlace} from "../types/place";
+import {ICountries, IPlace} from "@/types/place";
 import {API_URL} from "../constants";
 import {useState} from "react";
 import Home from "../components/elements/home/Home";
+
 interface IApp {
     initialPlaces: IPlace[],
     initialCountries: ICountries[]
@@ -19,8 +20,8 @@ const App:NextPage<IApp> = ({initialPlaces, initialCountries}) => {
 
 export const getStaticProps: GetStaticProps =
     async () => {
-        const Places = await fetch(`${API_URL}/places`)
-        const initialPlaces = await Places.json()
+        const places = await fetch(`${API_URL}/places`)
+        const initialPlaces = await places.json()
         const Countries = await fetch(`${API_URL}/countries`)
         const initialCountries = await Countries.json()
       return {
@@ -31,4 +32,4 @@ export const getStaticProps: GetStaticProps =
           }
     }
 
-    export default App
+export default App

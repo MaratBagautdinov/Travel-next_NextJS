@@ -13,6 +13,7 @@
     border-radius: 20px;
     color: white;
     transition: .4s;
+    text-transform: capitalize;
 }
 .Filters button.active{
     border: 1px solid var(--acscent);

@@ -26,7 +26,7 @@
     height: 40%;
 }
 .icons button{
-    border-radius: 2rem;
+    border-radius: 3rem;
     padding: 1.2rem;
     background-color: rgba(241, 241, 241, 0.47);
     box-shadow: 0 0 15px 0 rgb(0 0 0 / 15%);
@@ -35,6 +35,20 @@
     z-index: 2;
     transition: .4s;
 }
+.icons button.active{
+    background-color: #f87b44;
+    color: #fff;
+}
+.icons button.active:hover{
+    background-color: var(--acscent);
+    color: #fff;
+}
+.icons button span{
+    display: flex;
+    color: #000;
+    text-align: center;
+}
 .icons button:hover{
     background-color: rgba(255, 255, 255, 0.72);
 }
+

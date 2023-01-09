@@ -1,65 +1,70 @@
-import {IPlace} from "../../../types/place";
-import tokyo from '../../../images/tokyo.jpg'
-import moscow from '../../../images/moscow.jpg'
-import franche from '../../../images/Paris.jpg'
-import germany from '../../../images/berlin.jpg'
-import kazan from '../../../images/kazan.jpg'
+import {IPlace} from "@/types/place";
+import tokyo from '../../../public/places/tokyo.jpg'
+import moscow from '../../../public/places/moscow.jpg'
+import franche from '../../../public/places/Paris.jpg'
+import germany from '../../../public/places/berlin.jpg'
+import kazan from '../../../public/places/kazan.jpg'
 import {NextApiRequest, NextApiResponse} from "next";
 export const places:IPlace[] = [
     {
         id: 0,
-        location: {city: 'Tokyo',country:'Japan'},
+        location: {
+            city: 'Tokyo',
+            country:'Japan',
+            coordinates: [0,1]
+        },
         imageLink: tokyo.src,
         description: "Drift",
         rating: 3,
-        duration: 10,
-        distance: 3243,
-        googleMapLink: "string",
-        mapImage: "string"
+        duration: 10
     },
     {
         id: 1,
-        location: {city: 'Moscow', country: 'Russia'},
+        location: {
+            city: 'Moscow',
+            country: 'Russia',
+            coordinates: [0,1]
+        },
         description: "Russian Vodka",
-        distance: 122,
         duration: 15,
-        googleMapLink: "",
         imageLink: moscow.src,
         rating: 5,
-        mapImage: ""
     },
     {
         id: 2,
-        location: {city: 'Kazan', country: 'Russia'},
+        location: {
+            city: 'Kazan',
+            country: 'Russia',
+            coordinates: [0,1]
+        },
         description: "Capital of Tatarstan Republic",
-        distance: 122,
         duration: 15,
-        googleMapLink: "",
         imageLink: kazan.src,
         rating: 5,
-        mapImage: ""
     },
     {
         id: 3,
-        location: {city: 'Paris', country: "Franche"},
+        location: {
+            city: 'Paris',
+            country: "France",
+            coordinates: [0,1]
+        },
         description: "Vodka",
-        distance: 4222,
         duration: 8,
-        googleMapLink: "",
         imageLink: franche.src,
         rating: 4,
-        mapImage: " "
     },
     {
         id: 4,
-        location: {city: 'Berlin', country: "Germany"},
+        location: {
+            city: 'Berlin',
+            country: "Germany",
+            coordinates: [0,1]
+        },
         description: "Beer",
-        distance: 5222,
         duration: 5,
-        googleMapLink: "",
         imageLink: germany.src,
-        rating: 5,
-        mapImage: ""
+        rating: 5
     }
 ]
 
