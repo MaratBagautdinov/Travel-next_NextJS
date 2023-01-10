@@ -1,5 +1,5 @@
 import {NextApiRequest, NextApiResponse} from "next";
-import {IUsers} from "../../../types/users";
+import {IFavoritePlaces, IUsers} from "@/types/users";
 import marat from '../../../public/users/marat.jpg'
 import stepan from '../../../public/users/stepan.jpg'
 export const users:IUsers[] = [
@@ -17,7 +17,7 @@ export const users:IUsers[] = [
         password: '1111',
         name: 'Stepan',
         logo: stepan.src,
-        favoritePlaces:[2,1]
+        favoritePlaces:[2,1],
     },
 ]
 

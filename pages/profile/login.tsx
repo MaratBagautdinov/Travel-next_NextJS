@@ -2,6 +2,7 @@ import s from './logIn/LogIn.module.css'
 import {IUsers} from "@/types/users";
 import {FC, useEffect, useState} from "react";
 import Layout from "@/common/footer/Layout";
+import Meta from "../../components/utills/Meta";
 
 interface ILogin{
     users: IUsers[]
@@ -23,6 +24,7 @@ const Login:FC<ILogin> = ({users,setLogIn}) =>{
     useEffect(() => setError(''),[name, password])
     return(
         <Layout>
+            <Meta title='Log in' description='Log in'/>
         <div className={s.formLogIn}>
             <input
                 type="text"

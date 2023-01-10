@@ -21,7 +21,8 @@
     "baseUrl": "./components/",
     "paths": {
       "@/common/*": ["common/*"],
-      "@/types/*": ["types/*"]
+      "@/types/*": ["types/*"],
+      "@lib/*": ["./lib/*"]
     }
   },
   "include": [

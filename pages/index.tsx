@@ -4,6 +4,7 @@ import {ICountries, IPlace} from "@/types/place";
 import {API_URL} from "../constants";
 import {useState} from "react";
 import Home from "../components/elements/home/Home";
+import Meta from "../components/utills/Meta";
 
 interface IApp {
     initialPlaces: IPlace[],
@@ -13,6 +14,7 @@ const App:NextPage<IApp> = ({initialPlaces, initialCountries}) => {
     const [places, setPlaces] = useState(initialPlaces);
     return (
         <Layout>
+            <Meta title='Best places for trip' description='Best routs for traveling'/>
             <Home initialCountries={initialCountries} initialPlaces ={initialPlaces} places={places} setPlaces={setPlaces}/>
         </Layout>
     )

@@ -2,11 +2,12 @@ import Layout from "../../components/common/footer/Layout";
 import User from "../../components/elements/Profile/user/User";
 import {GetStaticPaths, GetStaticProps, NextPage} from "next";
 import {API_URL} from "../../constants";
-import {IUsers} from ".@/types/users";
+import {IUsers} from "@/types/users";
 import {IPlace} from "@/types/place";
 import loginUser from "../api/loginUser";
 import {useRouter} from "next/router";
 import {useEffect} from "react";
+import Meta from "../../components/utills/Meta";
 interface IProfile{
     user: IUsers,
     FavPlaces: IPlace[]
@@ -18,6 +19,7 @@ const Profile:NextPage<IProfile> = ({user,FavPlaces}) => {
         if(user.id !== loginUser){push(`/profile/login`)}
     },)
     return <Layout>
+        <Meta title={user.name} description='Profile'/>
         <User FavPlaces={FavPlaces} user={user}/>
     </Layout>
 }

@@ -4,8 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "echo 'Building Sanity to public/studio' && cd studio && yarn && npx @sanity/cli build ../public/studio -y && echo 'Done'",
     "build": "next build",
     "start": "next start",
+    "sanity": "cd travelAPI && sanity start",
     "lint": "next lint"
   },
   "dependencies": {
@@ -16,6 +18,7 @@
     "material-icons": "^1.13.1",
     "material-symbols": "^0.4.2",
     "next": "13.1.1",
+    "next-sanity": "^4.0.0",
     "nextjs-progressbar": "^0.0.16",
     "react": "18.2.0",
     "react-dom": "18.2.0",

@@ -1,4 +1,8 @@
-export interface favoritePlaces{
+import {users} from "../../pages/api/users";
+import {number} from "prop-types";
+
+
+export interface IFavoritePlaces{
     [index:number]: number
 }
 export interface IUsers{
@@ -7,5 +11,5 @@ export interface IUsers{
     password: string
     name: string
     logo: string
-    favoritePlaces
+    favoritePlaces: IFavoritePlaces
 }
