@@ -6,22 +6,9 @@ export default defineType({
   type: 'document',
   fields: [
     defineField({
-      name: 'name',
-      title: 'Name',
-      type: 'string',
-    }),
-    defineField({
       name: 'login',
-      title: 'Index',
+      title: 'Login',
       type: 'string'
-    }),
-    defineField({
-      name: 'logo',
-      title: 'Logo',
-      type: 'image',
-      options: {
-        hotspot: true,
-      },
     }),
     defineField({
       name: 'password',
@@ -38,7 +25,6 @@ export default defineType({
   preview: {
     select: {
       title: 'login',
-      media: 'logo',
     },
   },
 })

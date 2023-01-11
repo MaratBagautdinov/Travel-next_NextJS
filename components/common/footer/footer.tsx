@@ -1,37 +1,45 @@
 import s from './footer.module.css'
 import {useRouter} from "next/router";
-import loginUser from "../../../pages/api/loginUser";
+import loginUser from "@api/loginUser";
 
 type typeItems = {
     link: string
     icon: string
 }
-const items:typeItems[] = [
+const LogOut:typeItems[] = [
     {
         link: '/',
-        icon: 'home'
+        icon: 'travel_explore'
     },
     {
-        link: '/explore',
-        icon: 'explore'
-    },
-    {
-        link: '/place/moscow',
-        icon: 'place'
-    },
-    {
-        link: `/profile/${(loginUser._id.toString() === '-1') ? 'login' : ''}`,
-        icon: 'person'
+        link: '/login',
+        icon: 'login'
     },
 ]
+const LogIn:typeItems[] = [
+    {
+        link: '/',
+        icon: 'travel_explore'
+    },
+    {
+        link: '/favorites',
+        icon: 'favorite'
+    },
+    {
+        link: `/login`,
+        icon: 'logout'
+    },
+]
+// @ts-ignore
+const Log = !(loginUser) ? LogOut : LogIn
 const Footer = () => {
     const {push, pathname} = useRouter();
     return (
         <footer className={s.footer}>
             <nav>
-                {items.map(item =>(
+                {Log.map(item =>(
                 <button
-                    className={pathname === item.link ? s.active : ''}
+                    className={pathname === `${item.link}` ? s.active : ''}
                     key={item.link}
                     onClick={() => push(item.link.toLowerCase())}>
                   <span className='material-icons-outlined'>{item.icon}</span>

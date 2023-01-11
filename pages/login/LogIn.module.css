@@ -1,0 +1,14 @@
+.formLogIn{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 0 10%;
+    margin-top: 2rem;
+}
+.formLogIn button {
+    margin: auto;
+}
+.formLogIn > div {
+    display: flex;
+    flex-direction: row;
+}

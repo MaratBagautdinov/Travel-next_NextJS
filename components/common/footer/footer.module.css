@@ -2,14 +2,14 @@
     position: fixed;
     bottom: 0;
     left: 0;
-    width: calc(100% - 2 * 1rem);
-    padding: 0 1rem;
+    width: calc(100% - 2 * 2rem);
+    padding: 0 2rem;
     background-color: rgb(30, 30, 30);
     z-index: 2;
 }
 .footer nav{
-    display: grid;
-    grid-template-columns: repeat(4,1fr);
+    display: flex;
+    justify-content: space-around;
 }
 .footer nav button{
     padding: .6rem 0;

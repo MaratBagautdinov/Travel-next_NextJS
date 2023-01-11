@@ -22,7 +22,8 @@
     "paths": {
       "@/common/*": ["common/*"],
       "@/types/*": ["types/*"],
-      "@lib/*": ["./lib/*"]
+      "@api/*": ["../pages/api/*"],
+      "@meta": ["utils/Meta"]
     }
   },
   "include": [

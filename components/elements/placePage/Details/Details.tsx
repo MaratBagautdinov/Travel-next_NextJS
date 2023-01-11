@@ -2,7 +2,7 @@ import s from './Details.module.css'
 import {FC, useState} from "react";
 import {IPlace} from "@/types/place";
 import MapFC from "./Map/MapFC";
-import {PortableText} from "../../../../pages/api/sanity/sanity";
+import {PortableText} from "@api/sanity/sanity";
 interface IDetails {
     place:IPlace
 }

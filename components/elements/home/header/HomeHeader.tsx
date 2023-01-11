@@ -1,8 +1,8 @@
 import s from './Header.module.css'
-import Search from "./Search/Search";
-import mapImage from '../../../../public/places/world-map.png'
+import mapImage from '../../../../public/world-map.png'
 import Filters from "./Filters/Filters";
 import {useEffect, useState} from "react";
+import Input from "@/common/Input/Input";
 
 const HomeHeader = ({setPlaces, initialPlaces, initialCountries}) => {
     const [searchTerm, setSearchTerm] = useState('');
@@ -30,7 +30,11 @@ const HomeHeader = ({setPlaces, initialPlaces, initialCountries}) => {
   return (
       <header className={s.section} style={{backgroundImage: `url('${mapImage.src}')`}}>
           <h1>best places for trip</h1>
-          <Search setSearchTerm={setSearchTerm} searchTerm={searchTerm}/>
+          <Input
+              icon={'search'}
+              placeholder={'Search place...'}
+              value={searchTerm}
+              setValue={setSearchTerm}/>
           <Filters filter={filter} setFilter={setFilter} initialCountries={initialCountries}/>
       </header>
   )
