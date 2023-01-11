@@ -1,6 +1,6 @@
 import s from './footer.module.css'
 import {useRouter} from "next/router";
-import login from "../../../pages/api/loginUser";
+import loginUser from "../../../pages/api/loginUser";
 
 type typeItems = {
     link: string
@@ -20,7 +20,7 @@ const items:typeItems[] = [
         icon: 'place'
     },
     {
-        link: `/profile/${(login.toString() === '-1') ? 'login' : login}`,
+        link: `/profile/${(loginUser._id.toString() === '-1') ? 'login' : ''}`,
         icon: 'person'
     },
 ]

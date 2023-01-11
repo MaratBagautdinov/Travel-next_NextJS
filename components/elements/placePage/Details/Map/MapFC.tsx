@@ -28,7 +28,7 @@ const MapFC:FC<IMap> = ({location}) =>{
                     scale: 200,
                 }}
                 width={240}
-                height={140}
+                height={155}
             >
                 <ZoomableGroup zoom={0.3}>
                     <Geographies geography={geoUrl}>

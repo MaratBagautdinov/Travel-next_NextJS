@@ -1,11 +1,13 @@
 import s from './Details.module.css'
-import {FC} from "react";
+import {FC, useState} from "react";
 import {IPlace} from "@/types/place";
 import MapFC from "./Map/MapFC";
+import {PortableText} from "../../../../pages/api/sanity/sanity";
 interface IDetails {
     place:IPlace
 }
 const Details:FC<IDetails> = ({place}) =>{
+    const [TEXTorMAP, setTEXTorMAP] = useState(false)
     return(
         <div className={s.Details}>
             <div className={s.info}>
@@ -13,7 +15,6 @@ const Details:FC<IDetails> = ({place}) =>{
                     <span className="material-icons-outlined">place</span>
                     {place.location.city}, {place.location.country}
                 </div>
-                <span className={s.description}>{place.description}</span>
                 <div className={s.info_under}>
                     <div className={s.rating}>
                         <span className="material-icons-outlined">star</span>
@@ -24,8 +25,21 @@ const Details:FC<IDetails> = ({place}) =>{
                         {place.duration} Days
                     </div>
                 </div>
+                <button
+                    className={s.TEXTorMAP}
+                    onClick={()=>setTEXTorMAP(!TEXTorMAP)}
+                >
+                    <span>Open {TEXTorMAP ? 'map' : 'description'}</span>
+                    <span className="material-icons-outlined">arrow_drop_down</span>
+                </button>
             </div>
-            <MapFC location={place.location}/>
+            <div>
+                {TEXTorMAP ?
+                    <span className={s.description}>{<PortableText value={place.description}/>}</span>
+                :
+                    <MapFC location={place.location}/>
+                }
+            </div>
         </div>
     )
 }

@@ -1,8 +1,8 @@
-import s from './logIn/LogIn.module.css'
+import s from './LogIn.module.css'
 import {IUsers} from "@/types/users";
 import {FC, useEffect, useState} from "react";
 import Layout from "@/common/footer/Layout";
-import Meta from "../../components/utills/Meta";
+import Meta from "../../../components/utills/Meta";
 
 interface ILogin{
     users: IUsers[]
@@ -16,7 +16,7 @@ const Login:FC<ILogin> = ({users,setLogIn}) =>{
     const findUser = () => {
         const check = users.find(user => user.login === name && user.password === password)
         if(check){
-            setLogIn(check.id)
+            setLogIn(check._id)
         }else{
             setError('User not found')
         }

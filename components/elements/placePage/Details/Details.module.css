@@ -1,19 +1,19 @@
 .Details{
-    display: grid;
-    grid-template-rows: 25vh 170px;
+    display: inline-grid;
+    grid-template-rows: 200px 250px;
     height: auto;
     width: 80%;
-    border-radius: 2rem;
+    border-radius: 1.5rem;
     background-color: rgba(115, 115, 115, 0.07);
     backdrop-filter: blur(4px);
     z-index: 3;
-    margin-top: -20vh;
+    margin-top: -23vh;
 }
 .info{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 2rem;
+    padding: 2rem 2rem 1rem 2rem;
 }
 .location{
     display: flex;
@@ -39,4 +39,23 @@
 }
 .rating > span{
     color: #ff9205;
+}
+.description{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    font-size: .9rem;
+    line-height: 1.3rem;
+    -webkit-box-orient: vertical;
+    padding: 0 2rem 2rem 2rem;
+}
+.TEXTorMAP{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    border-radius: 1rem;
+    font-size: 1rem;
+    background-color: var(--acscent);
+    padding: .5rem 0;
 }

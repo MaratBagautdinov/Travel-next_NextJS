@@ -1,10 +1,11 @@
 import Layout from "@/common/footer/Layout";
 import {GetStaticProps, NextPage} from "next";
 import {ICountries, IPlace} from "@/types/place";
-import {API_URL} from "../constants";
 import {useState} from "react";
 import Home from "../components/elements/home/Home";
 import Meta from "../components/utills/Meta";
+import {sanityClient} from "./api/sanity/sanity";
+import {getCountries, getPlaces} from "./api/sanity/queries";
 
 interface IApp {
     initialPlaces: IPlace[],
@@ -22,10 +23,8 @@ const App:NextPage<IApp> = ({initialPlaces, initialCountries}) => {
 
 export const getStaticProps: GetStaticProps =
     async () => {
-        const places = await fetch(`${API_URL}/places`)
-        const initialPlaces = await places.json()
-        const Countries = await fetch(`${API_URL}/countries`)
-        const initialCountries = await Countries.json()
+        const initialPlaces = await sanityClient.fetch(getPlaces('imageLink, slug{current}'))
+        const initialCountries = await sanityClient.fetch(getCountries)
       return {
             props:{
                 initialPlaces,

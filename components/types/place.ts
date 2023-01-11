@@ -1,10 +1,10 @@
 export interface ILocation {
     country: string
     city: string
-    coordinates: [number, number]
 }
 export interface IPlace{
-    id: number
+    _id: string
+    slug: {current:string}
     location: ILocation
     imageLink: string
     description: string
@@ -12,6 +12,6 @@ export interface IPlace{
     duration: number
 }
 export interface ICountries{
-    id:number
-    location: string
+    _id:number
+    title: string
 }

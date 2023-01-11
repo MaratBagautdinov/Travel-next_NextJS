@@ -6,4 +6,3 @@ export default defineCliConfig({
     dataset: 'production'
   }
 })
-// https://manage.sanity.io/project/6n813327
