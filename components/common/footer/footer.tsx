@@ -36,11 +36,10 @@ const LogIn:typeItems[] = [
 const Footer = () => {
     const {push, pathname} = useRouter();
     const {data} = useSession()
-    console.log(data)
     const Log = !(data) ? LogOut : LogIn
     const out = async () => {
-        await push('/');
         await signOut();
+        await toast.success('You are logged out')
     }
     return (
         <footer className={s.footer}>

@@ -53,9 +53,11 @@ export default defineType({
             validation: Rule => Rule.required().positive().min(0).max(5)
         }),
         defineField({
-            name: 'publishedAt',
-            title: 'Published at',
-            type: 'datetime',
+            name: 'subscribers',
+            title: 'Subscribes',
+            type: 'array',
+            of: [{type: 'string'}],
+            initialValue: []
         }),
     ],
 

@@ -4,12 +4,11 @@ import HeaderPlace from "./HeaderPlace/HeaderPlace";
 import Details from "./Details/Details";
 import {IPlacePage} from "../../../pages/place/[slug]";
 
-const PlacePage:FC<IPlacePage> = ({ FavCheck, place}) =>{
+const PlacePage:FC<IPlacePage> = ({ place}) =>{
     return(
         <div className={s.placePage}>
             <HeaderPlace
-                place={place}
-                FavCheck={FavCheck}/>
+                place={place}/>
             <Details place={place}/>
         </div>
     )

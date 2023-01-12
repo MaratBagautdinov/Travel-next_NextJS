@@ -4,6 +4,9 @@
     gap: 1rem;
     padding: 0 10%;
 }
+.FavoritesList h1{
+    margin: 2rem auto 1rem auto;
+}
 .list{
     display: flex;
     position: relative;

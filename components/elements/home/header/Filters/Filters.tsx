@@ -2,6 +2,7 @@ import s from './Filters.module.css'
 import {FC} from "react";
 import cn from 'classnames';
 import { IPlace} from "@/types/place";
+import uniqBy from "lodash/uniqBy";
 interface IFilters{
     initialPlaces: IPlace[],
     filter,
@@ -11,7 +12,7 @@ interface IFilters{
 const Filters:FC<IFilters> = ({setFilter, initialPlaces, filter}) => {
     return (
         <div className={s.Filters}>
-            {initialPlaces.map(place =>
+            {uniqBy(initialPlaces, 'location.country').map(place =>
                 <button
                     onClick={()=> setFilter(place.location.country)}
                     key={place.location.country}

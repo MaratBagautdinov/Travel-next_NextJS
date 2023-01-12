@@ -4,16 +4,15 @@ import {IPlace} from "@/types/place";
 import PlacePage from "../../components/elements/placePage/PlacePage";
 import Meta from "@meta";
 import {sanityClient} from "@api/sanity/sanity";
-import {getPlace, getPlaces, getUser} from "@api/sanity/queries";
+import {getPlace, getPlaces} from "@api/sanity/queries";
 
 export interface IPlacePage {
   place:IPlace
-  FavCheck: boolean
 }
-const Place:NextPage<IPlacePage> = ({place, FavCheck}) => {
+const Place:NextPage<IPlacePage> = ({place}) => {
   return <Layout>
     <Meta title={place.location.city} description={place.location.city}/>
-    <PlacePage place={place} FavCheck={FavCheck}/>
+    <PlacePage place={place}/>
   </Layout>
 }
 
@@ -27,11 +26,8 @@ export const getStaticPaths: GetStaticPaths = async() =>{
 }
 export const getStaticProps: GetStaticProps = async({params}) =>{
   const place = await sanityClient.fetch(getPlace(`${params.slug}`))
-  const user = await sanityClient.fetch(getUser)
-  const FavPlace = user.favoritePlaces.find(fav => fav._ref === place._id)
-  const FavCheck = !!(FavPlace !== undefined || '')
   return{
-    props:{ FavCheck, place }
+    props:{ place }
   }
 }
 export default Place

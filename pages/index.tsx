@@ -6,6 +6,7 @@ import Home from "../components/elements/home/Home";
 import Meta from "@meta";
 import {sanityClient} from "@api/sanity/sanity";
 import { getPlaces} from "@api/sanity/queries";
+import {useSession} from "next-auth/react";
 
 interface IApp {
     initialPlaces: IPlace[]

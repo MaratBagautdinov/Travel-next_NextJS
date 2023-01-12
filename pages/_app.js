@@ -5,6 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import NextProgressBar from 'nextjs-progressbar'
 import 'material-icons/iconfont/material-icons.css'
 import {SessionProvider} from "next-auth/react";
+import AuthProvider from "../components/providers/AuthProvider";
 export default function App({ Component, pageProps: {session, ...pageProps} }) {
   return (<>
     <NextProgressBar
@@ -14,7 +15,9 @@ export default function App({ Component, pageProps: {session, ...pageProps} }) {
         height={3}
     />
     <SessionProvider session={session}>
-      <Component {...pageProps} />
-      <ToastContainer theme={'dark'}/>
+      <AuthProvider Component={Component}>
+        <ToastContainer theme={'dark'}/>
+        <Component {...pageProps} />
+      </AuthProvider>
     </SessionProvider>
 </>)}
