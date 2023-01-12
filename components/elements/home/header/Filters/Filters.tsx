@@ -1,23 +1,23 @@
 import s from './Filters.module.css'
 import {FC} from "react";
 import cn from 'classnames';
-import {ICountries} from "@/types/place";
+import { IPlace} from "@/types/place";
 interface IFilters{
-    initialCountries: ICountries[],
+    initialPlaces: IPlace[],
     filter,
     setFilter,
 }
 
-const Filters:FC<IFilters> = ({setFilter, initialCountries, filter}) => {
+const Filters:FC<IFilters> = ({setFilter, initialPlaces, filter}) => {
     return (
         <div className={s.Filters}>
-            {initialCountries.map(country =>
+            {initialPlaces.map(place =>
                 <button
-                    onClick={()=> setFilter(country.title)}
-                    key={country._id}
-                    className={cn({[s.active]:country.title.toUpperCase() === filter})}
+                    onClick={()=> setFilter(place.location.country)}
+                    key={place.location.country}
+                    className={cn({[s.active]:place.location.country.toUpperCase() === filter})}
                 >
-                    {country.title}
+                    {place.location.country}
                 </button>
             )}
         </div>

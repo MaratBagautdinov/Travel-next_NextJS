@@ -1,8 +1,6 @@
 import s from './PopularPlaces.module.css'
 import {IPlace} from "@/types/place";
 import {FC} from "react";
-import Link from "next/link";
-import {urlFor} from "../../../../pages/api/sanity/sanity";
 import PlaceItem from "./PlaceItem/PlaceItem";
 interface IPopularPlaces {
     places: IPlace[]
@@ -15,6 +13,7 @@ const PopularPlaces: FC<IPopularPlaces> = ({places}) => {
             {places.map(place =>
                 <PlaceItem
                     slug={place.slug.current.toLowerCase()}
+                    id={place._id}
                     key={place._id}
                     image={place.imageLink}
                     city={place.location.city}

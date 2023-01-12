@@ -8,7 +8,8 @@ const Input = ({value, setValue, placeholder, icon}) => {
         type="text"
         onChange={(e)=>setValue(e.target.value)}
         value={value}
-        placeholder={placeholder}/>
+        placeholder={placeholder}
+        />
       </div>
   )
 }

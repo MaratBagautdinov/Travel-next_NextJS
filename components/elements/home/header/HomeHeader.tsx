@@ -4,15 +4,15 @@ import Filters from "./Filters/Filters";
 import {useEffect, useState} from "react";
 import Input from "@/common/Input/Input";
 
-const HomeHeader = ({setPlaces, initialPlaces, initialCountries}) => {
+const HomeHeader = ({setPlaces, initialPlaces}) => {
     const [searchTerm, setSearchTerm] = useState('');
     const [filter, setFilter] = useState('');
     const [value, setValue] = useState('');
     useEffect(()=>{
         if(value) {
             setPlaces(initialPlaces.filter(place =>
-                place.location.city.toUpperCase().includes(value) ||
-                place.location.country.toUpperCase().includes(value))
+                place.location.city.toUpperCase().includes(value.toUpperCase()) ||
+                place.location.country.toUpperCase().includes(value.toUpperCase()))
             )
         } else {
             setPlaces(initialPlaces);
@@ -21,10 +21,10 @@ const HomeHeader = ({setPlaces, initialPlaces, initialCountries}) => {
         setSearchTerm(value)
     },[value])
     useEffect(()=>{
-        setValue(searchTerm.toUpperCase())
+        setValue(searchTerm)
     },[searchTerm])
     useEffect(()=>{
-        setValue(filter.toUpperCase())
+        setValue(filter)
     },[filter])
 
   return (
@@ -34,8 +34,9 @@ const HomeHeader = ({setPlaces, initialPlaces, initialCountries}) => {
               icon={'search'}
               placeholder={'Search place...'}
               value={searchTerm}
-              setValue={setSearchTerm}/>
-          <Filters filter={filter} setFilter={setFilter} initialCountries={initialCountries}/>
+              setValue={setSearchTerm}
+          />
+          <Filters filter={filter} setFilter={setFilter} initialPlaces={initialPlaces}/>
       </header>
   )
 }

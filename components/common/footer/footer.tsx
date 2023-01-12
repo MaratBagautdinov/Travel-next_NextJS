@@ -1,10 +1,12 @@
 import s from './footer.module.css'
 import {useRouter} from "next/router";
-import loginUser from "@api/loginUser";
+import {signOut, useSession} from "next-auth/react";
+import {toast} from "react-toastify";
 
 type typeItems = {
     link: string
     icon: string
+    out?: boolean
 }
 const LogOut:typeItems[] = [
     {
@@ -12,7 +14,7 @@ const LogOut:typeItems[] = [
         icon: 'travel_explore'
     },
     {
-        link: '/login',
+        link: '/auth',
         icon: 'login'
     },
 ]
@@ -26,14 +28,20 @@ const LogIn:typeItems[] = [
         icon: 'favorite'
     },
     {
-        link: `/login`,
-        icon: 'logout'
+        link: `/auth`,
+        icon: 'logout',
+        out: true
     },
 ]
-// @ts-ignore
-const Log = !(loginUser) ? LogOut : LogIn
 const Footer = () => {
     const {push, pathname} = useRouter();
+    const {data} = useSession()
+    console.log(data)
+    const Log = !(data) ? LogOut : LogIn
+    const out = async () => {
+        await push('/');
+        await signOut();
+    }
     return (
         <footer className={s.footer}>
             <nav>
@@ -41,7 +49,7 @@ const Footer = () => {
                 <button
                     className={pathname === `${item.link}` ? s.active : ''}
                     key={item.link}
-                    onClick={() => push(item.link.toLowerCase())}>
+                    onClick={() => (item.out) ? out() : push(item.link)}>
                   <span className='material-icons-outlined'>{item.icon}</span>
                 </button>
                 ))}
