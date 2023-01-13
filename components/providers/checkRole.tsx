@@ -1,4 +1,4 @@
-import {FC} from "react";
+import {FC, PropsWithChildren} from "react";
 import {NextPage} from "next";
 import {useSession} from "next-auth/react";
 import {useRouter} from "next/router";
@@ -11,8 +11,7 @@ export type TypeAuthField ={
     Component:TypeRoles
 }
 
-// @ts-ignore
-const CheckRole:FC<TypeAuthField> = ({children, Component: {isOnlyUser}}) => {
+const CheckRole:FC<PropsWithChildren<TypeAuthField>> = ({children, Component: {isOnlyUser}}) => {
     const {data} = useSession()
     const {replace, pathname} = useRouter()
 

@@ -23,7 +23,8 @@
       "@/common/*": ["common/*"],
       "@/types/*": ["types/*"],
       "@api/*": ["../pages/api/*"],
-      "@meta": ["utils/Meta"]
+      "@meta": ["utils/Meta"],
+      "@screens/*": ["screens/*"]
     }
   },
   "include": [

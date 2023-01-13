@@ -13,5 +13,4 @@ const Input = ({value, setValue, placeholder, icon}) => {
       </div>
   )
 }
-
 export default Input

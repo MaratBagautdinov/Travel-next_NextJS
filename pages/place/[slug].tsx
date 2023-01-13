@@ -1,7 +1,7 @@
 import Layout from "@/common/footer/Layout";
 import {GetStaticPaths, GetStaticProps, NextPage} from "next";
 import {IPlace} from "@/types/place";
-import PlacePage from "../../components/elements/placePage/PlacePage";
+import PlacePage from "@screens/placePage/PlacePage";
 import Meta from "@meta";
 import {sanityClient} from "@api/sanity/sanity";
 import {getPlace, getPlaces} from "@api/sanity/queries";

@@ -9,7 +9,6 @@ const FavButton:FC<{placeID, subscribers}> = ({placeID, subscribers}) => {
         setRadio(!radioFav)
         radioFav ? delPlace(placeID, login, subscribers) : addPlace(placeID, login, subscribers)
     }
-    console.log(radioFav)
     return (
             <button
                 onClick={switchFav}

@@ -1,16 +1,13 @@
-import {FC} from "react";
-import {useSession} from "next-auth/react";
-import {useRouter} from "next/router";
+import { FC, PropsWithChildren } from 'react'
 import dynamic from "next/dynamic";
+import {TypeAuthField} from "./checkRole";
 const DynamicCheckRole = dynamic(() => import("./checkRole"),{
     ssr: false
 })
-// @ts-ignore
-const AuthProvider:FC<TypeAuthField> = ({children, Component: {isOnlyUser}}) => {
+const AuthProvider:FC<PropsWithChildren<TypeAuthField>> = ({children, Component: {isOnlyUser}}) => {
     return !isOnlyUser ?
         <>{children}</>
         :
-        // @ts-ignore
         <DynamicCheckRole Component={{isOnlyUser}}>{children}</DynamicCheckRole>
 };
 

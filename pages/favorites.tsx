@@ -4,10 +4,9 @@ import {IPlace} from "@/types/place";
 import Meta from "@meta";
 import {sanityClient} from "@api/sanity/sanity";
 import {getPlaces} from "@api/sanity/queries";
-import FavoritesList from "../components/elements/favorites/FavoritesList";
+import FavoritesList from "@screens/favorites/FavoritesList";
 import {NextPageAuth} from "../components/providers/checkRole";
 import {useSession} from "next-auth/react";
-import {useProjectId} from "sanity";
 interface IFavorites{
     places: IPlace[]
 }

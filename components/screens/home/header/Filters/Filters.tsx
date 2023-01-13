@@ -1,7 +1,6 @@
 import s from './Filters.module.css'
 import {FC} from "react";
-import cn from 'classnames';
-import { IPlace} from "@/types/place";
+import {IPlace} from "@/types/place";
 import uniqBy from "lodash/uniqBy";
 interface IFilters{
     initialPlaces: IPlace[],
@@ -16,7 +15,7 @@ const Filters:FC<IFilters> = ({setFilter, initialPlaces, filter}) => {
                 <button
                     onClick={()=> setFilter(place.location.country)}
                     key={place.location.country}
-                    className={cn({[s.active]:place.location.country.toUpperCase() === filter})}
+                    className={(place.location.country.toUpperCase() === filter.toUpperCase()) ? s.active : ''}
                 >
                     {place.location.country}
                 </button>

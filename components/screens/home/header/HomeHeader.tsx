@@ -1,7 +1,7 @@
 import s from './Header.module.css'
 import mapImage from '../../../../public/world-map.png'
 import Filters from "./Filters/Filters";
-import {useEffect, useState} from "react";
+import { useEffect, useState} from "react";
 import Input from "@/common/Input/Input";
 
 const HomeHeader = ({setPlaces, initialPlaces}) => {

@@ -2,6 +2,7 @@ import s from './footer.module.css'
 import {useRouter} from "next/router";
 import {signOut, useSession} from "next-auth/react";
 import {toast} from "react-toastify";
+import {FC} from "react";
 
 type typeItems = {
     link: string
@@ -33,7 +34,7 @@ const LogIn:typeItems[] = [
         out: true
     },
 ]
-const Footer = () => {
+const Footer:FC = () => {
     const {push, pathname} = useRouter();
     const {data} = useSession()
     const Log = !(data) ? LogOut : LogIn
@@ -45,15 +46,16 @@ const Footer = () => {
         <footer className={s.footer}>
             <nav>
                 {Log.map(item =>(
-                <button
-                    className={pathname === `${item.link}` ? s.active : ''}
-                    key={item.link}
-                    onClick={() => (item.out) ? out() : push(item.link)}>
-                  <span className='material-icons-outlined'>{item.icon}</span>
-                </button>
+                    <button
+                        className={pathname === `${item.link}` ? s.active : ''}
+                        key={item.link}
+                        onClick={() => (item.out) ? out() : push(item.link)}>
+                        <span className='material-icons-outlined'>{item.icon}</span>
+                    </button>
                 ))}
             </nav>
         </footer>
     )
-}
+};
+
 export default Footer
