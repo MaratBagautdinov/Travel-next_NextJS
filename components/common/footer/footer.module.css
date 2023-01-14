@@ -5,7 +5,7 @@
     width: calc(100% - 2 * 2rem);
     padding: 0 2rem;
     background-color: rgb(30, 30, 30);
-    z-index: 2;
+    z-index: 5;
 }
 .footer nav{
     display: flex;
