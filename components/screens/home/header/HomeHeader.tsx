@@ -1,7 +1,7 @@
 import s from './Header.module.css'
 import mapImage from '../../../../public/world-map.png'
 import Filters from "./Filters/Filters";
-import {FC, useEffect, useState} from "react";
+import {FC, useCallback, useEffect, useState} from "react";
 import Input from "@/common/Input/Input";
 import {IPlace} from "@/types/place";
 interface IHomeHead{
@@ -19,7 +19,7 @@ const HomeHeader:FC<IHomeHead> = ({setPlaces, initialPlaces}) => {
         } else {
             setPlaces(initialPlaces);
         }
-    },[filter])
+    },[filter, setPlaces, initialPlaces])
 
   return (
       <header className={s.section} style={{backgroundImage: `url('${mapImage.src}')`}}>

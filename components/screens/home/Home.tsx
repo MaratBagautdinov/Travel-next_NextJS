@@ -1,7 +1,7 @@
 import HomeHeader from "./header/HomeHeader";
 import PopularPlaces from "./PopularPlaces/PopularPlaces";
 import s from './Home.module.css'
-import {useState} from "react";
+import {useMemo, useState} from "react";
 
 
 const Home = ({initialPlaces}) =>{

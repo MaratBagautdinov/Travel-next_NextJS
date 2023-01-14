@@ -1,11 +1,11 @@
 {
   "name": "travel-app",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "license": "MIT",
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "prebuild": "echo 'Building Sanity to public/studio' && cd studio && yarn && npx @sanity/cli build ../public/studio -y && echo 'Done'",
+    "prebuild": "echo 'Building Sanity to travelAPI' && cd travelAPI && yarn && npx @sanity/cli build ../public/studio -y && echo 'Done'",
     "build": "next build",
     "start": "next start",
     "sanity": "cd travelAPI && sanity start",
@@ -40,6 +40,8 @@
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-replace": "^2.2.0",
     "rollup-plugin-terser": "^7.0.2",
-    "typescript": "4.9.4"
+    "typescript": "4.9.4",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
   }
 }

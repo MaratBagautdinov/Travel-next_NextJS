@@ -20,8 +20,6 @@ const setPlaceFav = (placeID:string, subscribers) => {
         body: JSON.stringify({mutations})
     })
         .then(response => response.json())
-        .then(result => console.log(result))
-        .catch(error => console.error(error))
 }
 export const addPlace = (placeID:string, userLogin:string, initSubscribers:[type:string]) =>{
     setPlaceFav(placeID, [...initSubscribers, userLogin])

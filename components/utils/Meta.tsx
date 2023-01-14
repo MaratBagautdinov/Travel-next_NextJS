@@ -14,7 +14,6 @@ const Meta: FC<IMeta> = ({ title, description }) => {
 
     return (
         <Head>
-            <title itemProp='headline'>{title} | Travel App</title>
             {description ? (
                 <>
                     <meta

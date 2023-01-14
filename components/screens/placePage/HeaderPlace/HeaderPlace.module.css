@@ -19,15 +19,15 @@
     background: linear-gradient(to top, #111112, rgba(255, 255, 255, 0));
 }
 .icons{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     align-items: center;
     width: 100%;
     height: 40%;
     z-index: 3;
 }
 .icons button{
+    margin: auto;
     border-radius: 3rem;
     padding: 1.2rem;
     background-color: rgba(241, 241, 241, 0.47);
