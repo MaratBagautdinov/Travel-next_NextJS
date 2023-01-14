@@ -1,5 +1,5 @@
 import Layout from "@/common/footer/Layout";
-import {GetStaticProps} from "next";
+import {GetServerSideProps} from "next";
 import {IPlace} from "@/types/place";
 import Meta from "@meta";
 import {sanityClient} from "@api/sanity/sanity";
@@ -8,12 +8,12 @@ import FavoritesList from "@screens/favorites/FavoritesList";
 import {NextPageAuth} from "../components/providers/checkRole";
 import {useSession} from "next-auth/react";
 interface IFavorites{
-    places: IPlace[]
+    initialPlaces: IPlace[]
 }
 
-const Favorites:NextPageAuth<IFavorites> = ({places}) => {
+const Favorites:NextPageAuth<IFavorites> = ({initialPlaces}) => {
     const {data} = useSession()
-    const FavPlaces = places.filter(place =>
+    const FavPlaces = initialPlaces.filter(place =>
         place.subscribers.find(user => (user === data.user.email))
     )
     return <Layout>
@@ -22,9 +22,8 @@ const Favorites:NextPageAuth<IFavorites> = ({places}) => {
     </Layout>
 }
 Favorites.isOnlyUser = true
-export const getStaticProps: GetStaticProps =
-    async () => {
-        const places = await sanityClient.fetch(getPlaces('imageLink, slug{current}, subscribers'))
-        return { props: { places } }
-    }
+export const getServerSideProps: GetServerSideProps = async(context) => {
+    const initialPlaces = await sanityClient.fetch(getPlaces('imageLink, slug{current}, subscribers'))
+    return { props: { initialPlaces } }
+}
 export default Favorites

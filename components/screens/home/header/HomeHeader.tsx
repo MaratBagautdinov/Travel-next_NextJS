@@ -1,30 +1,24 @@
 import s from './Header.module.css'
 import mapImage from '../../../../public/world-map.png'
 import Filters from "./Filters/Filters";
-import { useEffect, useState} from "react";
+import {FC, useEffect, useState} from "react";
 import Input from "@/common/Input/Input";
-
-const HomeHeader = ({setPlaces, initialPlaces}) => {
-    const [searchTerm, setSearchTerm] = useState('');
+import {IPlace} from "@/types/place";
+interface IHomeHead{
+    setPlaces
+    initialPlaces:IPlace[]
+}
+const HomeHeader:FC<IHomeHead> = ({setPlaces, initialPlaces}) => {
     const [filter, setFilter] = useState('');
-    const [value, setValue] = useState('');
     useEffect(()=>{
-        if(value) {
+        if(filter) {
             setPlaces(initialPlaces.filter(place =>
-                place.location.city.toUpperCase().includes(value.toUpperCase()) ||
-                place.location.country.toUpperCase().includes(value.toUpperCase()))
+                place.location.city.toUpperCase().includes(filter.toUpperCase()) ||
+                place.location.country.toUpperCase().includes(filter.toUpperCase()))
             )
         } else {
             setPlaces(initialPlaces);
         }
-        setFilter(value)
-        setSearchTerm(value)
-    },[value])
-    useEffect(()=>{
-        setValue(searchTerm)
-    },[searchTerm])
-    useEffect(()=>{
-        setValue(filter)
     },[filter])
 
   return (
@@ -33,8 +27,8 @@ const HomeHeader = ({setPlaces, initialPlaces}) => {
           <Input
               icon={'search'}
               placeholder={'Search place...'}
-              value={searchTerm}
-              setValue={setSearchTerm}
+              value={filter}
+              setValue={setFilter}
           />
           <Filters filter={filter} setFilter={setFilter} initialPlaces={initialPlaces}/>
       </header>

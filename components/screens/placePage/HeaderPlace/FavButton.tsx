@@ -1,9 +1,12 @@
 import s from './HeaderPlace.module.css'
-import {addPlace, delPlace, getLogin} from "@api/sanity/queries";
+import {addPlace, delPlace} from "@api/sanity/queries";
 import {FC, useState} from "react";
+import {useSession} from "next-auth/react";
 
 const FavButton:FC<{placeID, subscribers}> = ({placeID, subscribers}) => {
-    const login = getLogin()
+    const {data} = useSession()
+    let login;
+    if(data) login = data.user.email
     const [radioFav, setRadio] = useState(!!subscribers.find(user => user === login))
     const switchFav = () => {
         setRadio(!radioFav)

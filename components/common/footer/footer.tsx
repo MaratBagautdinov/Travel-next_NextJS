@@ -25,7 +25,7 @@ const LogIn:typeItems[] = [
         icon: 'travel_explore'
     },
     {
-        link: '/favorites',
+        link: `/favorites`,
         icon: 'favorite'
     },
     {

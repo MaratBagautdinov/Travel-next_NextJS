@@ -1,7 +1,6 @@
 import Layout from "@/common/footer/Layout";
 import {GetStaticProps, NextPage} from "next";
 import {IPlace} from "@/types/place";
-import {useState} from "react";
 import Home from "@screens/home/Home";
 import Meta from "@meta";
 import {sanityClient} from "@api/sanity/sanity";

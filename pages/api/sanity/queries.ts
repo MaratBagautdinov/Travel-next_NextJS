@@ -1,11 +1,3 @@
-import {useSession} from "next-auth/react";
-export const getLogin = () =>{
-    const {data} = useSession()
-    let login;
-    if(data) login = data.user.email
-    return login
-}
-
 export const getPlaces = (params: string) => `*[_type == "places"]{_id, location, ${params}}`
 export const getPlace = (slug:string) => `*[_type == "places" && slug.current == '${slug}'][0]`
 

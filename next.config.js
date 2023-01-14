@@ -1,3 +1,8 @@
+const withPWA = require('next-pwa')({
+  dest: 'public',
+  disable: process.env.NODE_ENV !== 'production',
+})
+
 const STUDIO_REWRITE = {
   source: '/studio/:path*',
   destination:
@@ -6,7 +11,8 @@ const STUDIO_REWRITE = {
           : '/travelapp/index.html',
 }
 
-module.exports = {
+module.exports = withPWA({
+  swcMinify: true,
   reactStrictMode: true,
   env: {
     APP_URL: 'http://localhost:3000',
@@ -14,4 +20,7 @@ module.exports = {
     SANITY_API_TOKEN: 'skUl6egNczkA3O5h1krBAJnnY3yEYrO3f9mqFymTo8zVcPNRjgt77mlvFHGCPAEItAphQbnplLEifkzMx2MPPvXnQ3Tf9I1JQyVYr5AwyFbWlAyFKoMoX3DeUmYEU3Q5fcPb9Pq3SgLTWmxO5K1kSq85WVQGd1sEO1DqPXpIgBOZwgrNNQlK'
   },
   rewrites: () => [STUDIO_REWRITE],
-}
+  images: {
+    domains: ['cdn.sanity.io']
+  },
+})
