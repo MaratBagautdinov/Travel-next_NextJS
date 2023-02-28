@@ -9,7 +9,7 @@ const Home = ({initialPlaces}) =>{
     return (
         <div className={s.Home}>
             <HomeHeader initialPlaces={initialPlaces} setPlaces={setPlaces}/>
-            <PopularPlaces places={places}/>
+            <PopularPlaces places={places} setPlaces={setPlaces}/>
         </div>
     )
 }

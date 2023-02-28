@@ -1,14 +1,16 @@
 import s from './PlaceItem.module.css'
 import {urlFor} from "@api/sanity/sanity";
 import Link from "next/link";
+import {IPlace} from "@/types/place";
+import {FC} from "preact/compat";
 
-const PlaceItem = ({slug, id, image, city, country}) => {
-    return(
-        <Link href={`/place/${slug}`}
+const PlaceItem: FC<{ place: IPlace }> = ({place}) => {
+    return (
+        <Link href={`/place/${place.slug.current.toLowerCase()}`}
               className={s.item}
-              style={{backgroundImage: `url(${urlFor(image).url()})`}}>
+              style={{backgroundImage: `url(${urlFor(place.imageLink).url()})`}}>
             <div className={s.heading}>
-                {city + ', ' + country}
+                {place.location.city + ', ' + place.location.country}
             </div>
         </Link>
     )

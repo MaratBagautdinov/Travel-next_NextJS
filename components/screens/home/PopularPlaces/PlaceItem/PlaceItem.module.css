@@ -4,7 +4,7 @@
     height: 200px;
     background-position: center;
     background-size: cover;
-    margin-top: -4rem;
+    margin-top: 0;
     box-shadow: -5px -5px 15px 5px rgba(0, 0, 0, 0.84);
     padding: 2rem;
     font-size: 1.5rem;
@@ -15,6 +15,7 @@
     top: 0;
     font-weight: bold;
     color: white;
+    user-select: none;
 }
 .item:first-child{
     margin-top: 0;
@@ -29,5 +30,5 @@
     box-shadow: inset -3px 6px 15px 0 rgba(255, 255, 255, 0.2);
 }
 .item:hover{
-    top: -1rem;
+    top: 0;
 }
